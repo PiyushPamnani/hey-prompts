@@ -16,7 +16,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
         className="w-full mt-10 max-w-2xl flex flex-col gap-7 glassmorphism"
       >
         <label>
-          <span className="font-santoshi font-semibold text-base text-gray-700">
+          <span className="font-satoshi font-semibold text-base text-gray-700">
             Your AI Prompt
           </span>
 
@@ -29,7 +29,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
           />
         </label>
         <label>
-          <span className="font-santoshi font-semibold text-base text-gray-700">
+          <span className="font-satoshi font-semibold text-base text-gray-700">
             Tags {` `}{" "}
             <span className="font-normal">
               (#webdevelopment, #prompts, #idea)
