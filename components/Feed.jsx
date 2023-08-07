@@ -1,9 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 import PromptCard from "./PromptCard";
 
 const PromptCardList = ({ data, handleTagClick }) => {
+  const { data: session } = useSession();
+
+  if (!session?.user)
+    return (
+      <div className="font-satoshi mt-16">
+        Please Sign-In to explore all Prompts!
+      </div>
+    );
+
   return (
     <div className="mt-16 prompt_layout">
       {data.map((prompt) => (
@@ -18,10 +28,40 @@ const PromptCardList = ({ data, handleTagClick }) => {
 };
 
 const Feed = () => {
-  const [searchTerm, setSearchTerm] = useState("");
   const [promptsData, setPromptsData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTimeout, setSearchTimeout] = useState(null);
+  const [searchedResults, setSearchedResults] = useState([]);
 
-  const handleSearchChange = (e) => {};
+  const filterPrompts = (searchtext) => {
+    const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
+    return promptsData.filter(
+      (item) =>
+        regex.test(item.creator.username) ||
+        regex.test(item.tag) ||
+        regex.test(item.prompt)
+    );
+  };
+
+  const handleSearchChange = (e) => {
+    clearTimeout(searchTimeout);
+    setSearchTerm(e.target.value);
+
+    // debounce method
+    setSearchTimeout(
+      setTimeout(() => {
+        const searchResult = filterPrompts(e.target.value);
+        setSearchedResults(searchResult);
+      }, 500)
+    );
+  };
+
+  const handleTagClick = (tagName) => {
+    setSearchTerm(tagName);
+
+    const searchResult = filterPrompts(tagName);
+    setSearchedResults(searchResult);
+  };
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -47,7 +87,14 @@ const Feed = () => {
         />
       </form>
 
-      <PromptCardList data={promptsData} handleTagClick={() => {}} />
+      {searchTerm ? (
+        <PromptCardList
+          data={searchedResults}
+          handleTagClick={handleTagClick}
+        />
+      ) : (
+        <PromptCardList data={promptsData} handleTagClick={handleTagClick} />
+      )}
     </section>
   );
 };

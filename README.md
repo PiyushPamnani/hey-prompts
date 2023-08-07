@@ -1,34 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### PREVIEW
 
-## Getting Started
+![Hey-Prompts](https://i.ibb.co/D17h8Rg/hey-prompts.png)
 
-First, run the development server:
+### OVERVIEW
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The Hey-Prompts platform, developed using Next.js, showcases a comprehensive set of CRUD (Create, Read, Update, Delete) features. A core component of this platform is seamless integration with Google Account sign-in, enabling users to effortlessly access and explore a diverse array of prompts, both user-created and community-contributed.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Key Features:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Utilizes Next.js framework to ensure optimal performance and user experience.
+- Encompasses a robust CRUD system, empowering users to effortlessly Create, Read, Update and Delete prompts.
+- Seamlessly integrates Google Account authentication, offering a secure and streamlined sign-in process.
+- Provides users with personalized access to prompts authored by themselves, as well as those contributed by other members of the community.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+By leveraging Next.js, Hey-Prompts offers a polished and efficient platform for users to engage with prompts while seamlessly managing their own content and exploring the rich assortment of prompts contributed by the platform's user base. The integration of Google Account authentication enhances accessibility and security, further enriching the user experience.
